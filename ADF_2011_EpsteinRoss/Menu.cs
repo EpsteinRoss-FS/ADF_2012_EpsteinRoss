@@ -1,0 +1,68 @@
+﻿/** 
+ * Ross Epstein
+ * 11/23/2020
+ * ADF119-O - APPLICATION DEVELOPMENT FUNDAMENTALS
+ * 1.3 Project Initiation
+ * **/
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ADF_2011_EpsteinRoss
+{
+    class Menu
+    {
+
+        //initialize menu variables
+        private List<string> _menuItems { get; set; }
+        public List<string> MenuList { get; set; }
+        public static int menuLength = 0;
+
+        public Menu()
+        {
+
+        }
+
+        //initialize the menu based on array of string
+        public void Init(string[] initData)
+        {
+            menuLength = 0;
+            List<string> newMenu = new List<string>();
+            int i = 0;
+
+            //get each item in array and add to menu
+            foreach (string item in initData)
+            {
+                newMenu.Add(item);
+                i++;
+                menuLength++;
+            }
+
+            _menuItems = newMenu;
+            MenuList = newMenu;
+
+        }
+
+        public void Display()
+        {
+            //display menu header
+            Console.WriteLine("========================================");
+            Console.WriteLine($"               {_menuItems[0].ToUpper()}                ");
+            Console.WriteLine("========================================");
+
+            int i = 1;
+
+            //display all items in _menuItems where the text != "main menu"
+            foreach (var item in _menuItems)
+            {
+                if (item.ToLower() != "main menu")
+                {
+                    Console.WriteLine($"[{i}]:  {item}");
+                    i++;
+                }
+            }
+
+        }
+    }
+}
