@@ -19,7 +19,7 @@ namespace ADF_2011_EpsteinRoss
             //continue program till user exits
             while (!hasExited)
             {
-                App app = new App();
+                App project = new App();
             }
         }
     }

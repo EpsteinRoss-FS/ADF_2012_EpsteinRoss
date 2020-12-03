@@ -28,7 +28,7 @@ namespace ADF_2011_EpsteinRoss
             appMenu.Init(menuItems);
 
             //pass user for login
-            User user = new User("TestGuy", 1, "password");
+            User user = new User();
 
             _mainUser = user;
 

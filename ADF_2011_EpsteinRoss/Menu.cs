@@ -17,6 +17,7 @@ namespace ADF_2011_EpsteinRoss
         //initialize menu variables
         private List<string> _menuItems { get; set; }
         public List<string> MenuList { get; set; }
+        private string _title { get; set; }
         public static int menuLength = 0;
 
         public Menu()
@@ -42,13 +43,18 @@ namespace ADF_2011_EpsteinRoss
             _menuItems = newMenu;
             MenuList = newMenu;
 
+            _title = _menuItems[0];
         }
 
         public void Display()
         {
+            Console.ForegroundColor= ConsoleColor.Green;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Clear();
+
             //display menu header
             Console.WriteLine("========================================");
-            Console.WriteLine($"               {_menuItems[0].ToUpper()}                ");
+            Console.WriteLine($"               {_title.ToUpper()}                ");
             Console.WriteLine("========================================");
 
             int i = 1;

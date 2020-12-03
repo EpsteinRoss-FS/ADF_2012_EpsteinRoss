@@ -19,7 +19,7 @@ namespace ADF_2011_EpsteinRoss
         public string _password { get; set; }
 
         //constructor
-        public User(string name, int id, string password)
+        public User(string name = "TestGuy", int id = 1, string password = "password")
         {
             //capture data for user object
             _name = name;
