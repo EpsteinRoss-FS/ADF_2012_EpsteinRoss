@@ -15,24 +15,21 @@ namespace ADF_2011_EpsteinRoss
     {
 
         private static Menu _appMenu { get; set; }
-        private static User _mainUser { get; set; }
+        private static User _activeUser { get; set; }
+        private static bool _loggedIn { get; set; }
         public App()
         {
             //create initial menu
             Console.Clear();
             Menu appMenu = new Menu();
-            string[] menuItems = { "Main Menu", "Login", "About", "Exit" };
+            string[] menuItems = { "Main Menu", "Create User", "Login", "About", "Exit" };
             _appMenu = appMenu;
 
             //initialize menu
             appMenu.Init(menuItems);
 
-            //pass user for login
-            User user = new User();
+            appMenu.Display(false);
 
-            _mainUser = user;
-
-            appMenu.Display();
             Selection();
         }
 
@@ -54,7 +51,7 @@ namespace ADF_2011_EpsteinRoss
             while (!isInt || !isInRange)
             {
                 Console.Clear();
-                _appMenu.Display();
+                _appMenu.Display(false);
                 Console.Write($"Invalid entry!  Please enter a number between 1 and {menuLength} > ");
                 _userChoice = Console.ReadLine();
                 isInt = Validation.CheckInt(_userChoice);
@@ -68,6 +65,9 @@ namespace ADF_2011_EpsteinRoss
             //switch statement to handle the chosen menu item
             switch (chosenItem.ToLower())
             {
+                case "create user":
+                    Create();
+                    break;
                 case "about":
                     About();
                     break;
@@ -90,8 +90,8 @@ namespace ADF_2011_EpsteinRoss
         //call for the user login method
         public static bool Login()
         {
-            bool loggedIn = User.Login(_mainUser);
-            return loggedIn;
+            _loggedIn = User.Login(_activeUser);
+            return _loggedIn;
         }
 
         //display the about section
@@ -115,6 +115,74 @@ namespace ADF_2011_EpsteinRoss
         {
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
+        }
+
+        public static void Create()
+        {
+            Console.Clear();
+            Console.Write($"Please enter your username:  > ");
+            string _chooseUserName = Console.ReadLine();
+            bool validUsername = Validation.CheckString(_chooseUserName);
+
+            //insure username is valid string
+            while (!validUsername)
+            {
+                Console.Clear();
+                Console.Write($"Invalid Entry!  ");
+                Console.Write($"Please enter your username:  > ");
+                _chooseUserName = Console.ReadLine();
+                validUsername = Validation.CheckString(_chooseUserName);
+            }
+
+            Console.Write("Please enter your password:  > ");
+            string _choosePassword = Console.ReadLine();
+            bool validPassword = Validation.CheckString(_choosePassword);
+
+            //insure password is valid string
+            while (!validPassword)
+            {
+                Console.Clear();
+                Console.Write($"Invalid Entry!  ");
+                Console.Write($"Please enter your password:  > ");
+                _choosePassword = Console.ReadLine();
+                validPassword = Validation.CheckString(_choosePassword);
+            }
+
+            Console.Clear();
+            Console.WriteLine("You have chosen the following options:");
+            Console.WriteLine($"Username: {_chooseUserName}");
+            Console.WriteLine($"Password: {_choosePassword}");
+            Console.WriteLine("Is this correct? Yes/No");
+            
+            string confirmUser = Console.ReadLine();
+            bool confirmChoiceValid = Validation.CheckString(confirmUser);
+            
+            while (!confirmChoiceValid || (confirmUser.ToLower() != "yes" && confirmUser.ToLower() != "no"))
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid entry!");
+                Console.WriteLine("You have chosen the following options:");
+                Console.WriteLine($"Username: {_chooseUserName}");
+                Console.WriteLine($"Password: {_choosePassword}");
+                Console.WriteLine("Is this correct? Yes/No");
+
+                confirmUser = Console.ReadLine();
+                confirmChoiceValid = Validation.CheckString(confirmUser);
+
+            }
+
+            if (confirmUser.ToLower() == "yes")
+            {
+                _activeUser = new User(_chooseUserName, 1 , _choosePassword);
+            }
+            if (confirmUser.ToLower() == "no") 
+            {
+                Console.WriteLine("Cancelling user creation! Press any key to continue...");
+                Console.ReadKey();
+            }
+
+
+
         }
 
     }

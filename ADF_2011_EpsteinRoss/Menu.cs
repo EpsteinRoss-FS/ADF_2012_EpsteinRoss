@@ -46,7 +46,7 @@ namespace ADF_2011_EpsteinRoss
             _title = _menuItems[0];
         }
 
-        public void Display()
+        public void Display(bool userLoggedIn)
         {
             Console.ForegroundColor= ConsoleColor.Green;
             Console.BackgroundColor = ConsoleColor.Black;
@@ -64,7 +64,21 @@ namespace ADF_2011_EpsteinRoss
             {
                 if (item.ToLower() != "main menu")
                 {
-                    Console.WriteLine($"[{i}]:  {item}");
+
+                    if (item.ToLower() == "login") 
+                    {
+                        string displayChoice = userLoggedIn ? "Logout" : "Login";
+                        Console.WriteLine($"[{i}]:  {displayChoice}");
+                    }
+
+                    
+
+                    else
+                    {
+                        Console.WriteLine($"[{i}]:  {item}");
+                    }
+
+
                     i++;
                 }
             }
