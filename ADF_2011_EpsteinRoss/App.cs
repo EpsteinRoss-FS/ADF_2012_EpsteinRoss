@@ -90,7 +90,25 @@ namespace ADF_2011_EpsteinRoss
         //call for the user login method
         public static bool Login()
         {
-            _loggedIn = User.Login(_activeUser);
+
+            if (_loggedIn && (_activeUser != null || _activeUser._name != "loggedout"))
+            {
+                _activeUser = new User("loggedout", 1, "");
+                _loggedIn = false;
+                return _loggedIn;
+            }
+            
+            if(!_loggedIn && (_activeUser == null || _activeUser._name != "loggedout"))
+            {
+                if (_activeUser == null)
+                {
+                    _activeUser = new User();
+                }
+                Console.WriteLine(_activeUser);
+                Console.ReadKey();
+                _loggedIn = User.Login(_activeUser);
+                return _loggedIn;
+            }
             return _loggedIn;
         }
 
@@ -120,7 +138,7 @@ namespace ADF_2011_EpsteinRoss
         public static void Create()
         {
             Console.Clear();
-            Console.Write($"Please enter your username:  > ");
+            Console.Write($"Please enter your desired username:  > ");
             string _chooseUserName = Console.ReadLine();
             bool validUsername = Validation.CheckString(_chooseUserName);
 
@@ -129,12 +147,12 @@ namespace ADF_2011_EpsteinRoss
             {
                 Console.Clear();
                 Console.Write($"Invalid Entry!  ");
-                Console.Write($"Please enter your username:  > ");
+                Console.Write($"Please enter your desired username:  > ");
                 _chooseUserName = Console.ReadLine();
                 validUsername = Validation.CheckString(_chooseUserName);
             }
 
-            Console.Write("Please enter your password:  > ");
+            Console.Write("Please enter your desired password:  > ");
             string _choosePassword = Console.ReadLine();
             bool validPassword = Validation.CheckString(_choosePassword);
 
@@ -143,7 +161,7 @@ namespace ADF_2011_EpsteinRoss
             {
                 Console.Clear();
                 Console.Write($"Invalid Entry!  ");
-                Console.Write($"Please enter your password:  > ");
+                Console.Write($"Please enter your desired password:  > ");
                 _choosePassword = Console.ReadLine();
                 validPassword = Validation.CheckString(_choosePassword);
             }
