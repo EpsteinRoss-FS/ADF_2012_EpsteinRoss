@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss.csproj": {}
+    "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss.csproj": {}
   },
   "projects": {
-    "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss.csproj": {
+    "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss.csproj",
+        "projectUniqueName": "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss.csproj",
         "projectName": "ADF_2011_EpsteinRoss",
-        "projectPath": "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss.csproj",
+        "projectPath": "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss.csproj",
         "packagesPath": "C:\\Users\\rosse\\.nuget\\packages\\",
-        "outputPath": "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\ADF_2011_EpsteinRoss\\obj\\",
+        "outputPath": "H:\\FullSailDocs\\Classes\\7 - Project and Portfolio  Application Development Fundamentals\\Week 2\\2.6\\ADF_2011_EpsteinRoss\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
