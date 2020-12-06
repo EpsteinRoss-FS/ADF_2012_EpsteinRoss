@@ -5,7 +5,6 @@
  * 2.6 - Data Integration
  * **/
 
-
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +13,6 @@ namespace ADF_2011_EpsteinRoss
 {
     class App
     {
-
         private static Menu _appMenu { get; set; }
         private static User _activeUser { get; set; }
         private static bool _loggedIn { get; set; }
@@ -29,7 +27,7 @@ namespace ADF_2011_EpsteinRoss
             //initialize menu
             appMenu.Init(menuItems);
 
-            appMenu.Display(false);
+            appMenu.Display(_loggedIn, _activeUser);
 
             Selection();
         }
@@ -52,7 +50,7 @@ namespace ADF_2011_EpsteinRoss
             while (!isInt || !isInRange)
             {
                 Console.Clear();
-                _appMenu.Display(false);
+                _appMenu.Display(_loggedIn, _activeUser);
                 Console.Write($"Invalid entry!  Please enter a number between 1 and {menuLength} > ");
                 _userChoice = Console.ReadLine();
                 isInt = Validation.CheckInt(_userChoice);
@@ -91,27 +89,28 @@ namespace ADF_2011_EpsteinRoss
         //call for the user login method
         public static bool Login()
         {
-
-            if (_loggedIn && (_activeUser != null || _activeUser._name != "loggedout"))
+            //if a user is logged in, log user out
+            if (_loggedIn)
             {
-                _activeUser = new User("loggedout", 1, "");
                 _loggedIn = false;
                 return _loggedIn;
             }
-            
-            if(!_loggedIn && (_activeUser == null || _activeUser._name != "loggedout"))
+
+            //if user is not logged in, log in the user
+            if (!_loggedIn)
             {
                 if (_activeUser == null)
                 {
                     _activeUser = new User();
                 }
-                Console.WriteLine(_activeUser);
-                Console.ReadKey();
+
                 _loggedIn = User.Login(_activeUser);
+
                 return _loggedIn;
             }
             return _loggedIn;
         }
+    
 
         //display the about section
         public static void About()

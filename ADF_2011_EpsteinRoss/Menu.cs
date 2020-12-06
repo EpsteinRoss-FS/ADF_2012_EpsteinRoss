@@ -5,7 +5,6 @@
  * 2.6 - Data Integration
  * **/
 
-
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -47,18 +46,33 @@ namespace ADF_2011_EpsteinRoss
             _title = _menuItems[0];
         }
 
-        public void Display(bool userLoggedIn)
+        public void Display(bool userLoggedIn, User _activeUser)
         {
             Console.ForegroundColor= ConsoleColor.Green;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
 
-            //display menu header
-            Console.WriteLine("========================================");
-            Console.WriteLine($"               {_title.ToUpper()}                ");
-            Console.WriteLine("========================================");
+            if (!userLoggedIn)
+            {
+                Console.WriteLine("========================================");
+                Console.WriteLine($"               {_title.ToUpper()}                ");
+                Console.WriteLine("========================================");
+            }
 
+            //if user is logged in, display welcome message for user
+            if (userLoggedIn)
+            {
+                Console.WriteLine("========================================");
+                Console.WriteLine($"               WELCOME, {_activeUser._name.ToUpper()}                ");
+                Console.WriteLine("========================================");
+            }
             int i = 1;
+
+            //if a user is logged, remove Create User from menu list pre-iteration 
+            if (userLoggedIn && _menuItems.Contains("Create User"))
+            {
+                _menuItems.RemoveAll(x => x == "Create User");
+            }
 
             //display all items in _menuItems where the text != "main menu"
             foreach (var item in _menuItems)
