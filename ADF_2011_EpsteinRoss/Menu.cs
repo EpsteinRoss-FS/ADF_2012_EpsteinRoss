@@ -86,8 +86,6 @@ namespace ADF_2011_EpsteinRoss
                         Console.WriteLine($"[{i}]:  {displayChoice}");
                     }
 
-                    
-
                     else
                     {
                         Console.WriteLine($"[{i}]:  {item}");
