@@ -17,6 +17,7 @@ namespace ADF_2011_EpsteinRoss
         public string _name { get; set; }
         public int _id { get; set; }
         public string _password { get; set; }
+        private static readonly string filePath = "../../../Users.txt";
 
         //constructor
         public User(string name = "TestGuy", int id = 1, string password = "password")
