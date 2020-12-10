@@ -21,7 +21,7 @@ namespace ADF_2011_EpsteinRoss
             //create initial menu
             Console.Clear();
             Menu appMenu = new Menu();
-            string[] menuItems = { "Main Menu", "Create User", "Login", "About", "Exit" };
+            string[] menuItems = { "Main Menu", "Create User", "Show Profile", "Login", "About", "Exit" };
             _appMenu = appMenu;
 
             //initialize menu

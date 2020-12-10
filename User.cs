@@ -95,8 +95,6 @@ namespace ADF_2011_EpsteinRoss
 
             }
 
-
-
             /**name: testguy, id 1, password, testcity, teststate, active or not1 **/
 
             //insure username && password match

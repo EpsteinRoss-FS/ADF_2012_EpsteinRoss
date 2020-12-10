@@ -68,6 +68,11 @@ namespace ADF_2011_EpsteinRoss
             }
             int i = 1;
 
+            if (!userLoggedIn && _menuItems.Contains("Show Profile"))
+            {
+                _menuItems.RemoveAll(x => x == "Show Profile");
+            }
+
             //if a user is logged, remove Create User from menu list pre-iteration 
             if (userLoggedIn && _menuItems.Contains("Create User"))
             {
