@@ -16,16 +16,22 @@ namespace ADF_2011_EpsteinRoss
         //create initial variables
         public string _name { get; set; }
         public int _id { get; set; }
+        public int _status { get; set; }
+        public string _state { get; set; }
+        public string _city { get; set; }
         public string _password { get; set; }
         private static readonly string filePath = "../../../Users.txt";
 
         //constructor
-        public User(string name = "TestGuy", int id = 1, string password = "password")
+        public User(string name = "TestGuy", int id = 1, string password = "password", string city = "Default", string state = "NA", int status =  0)
         {
             //capture data for user object
             _name = name;
             _id = id;
             _password = password;
+            _city = city;
+            _state = state;
+            _status = status;
 
         }
 
