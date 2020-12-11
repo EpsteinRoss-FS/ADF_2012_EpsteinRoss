@@ -7,6 +7,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace ADF_2011_EpsteinRoss
@@ -16,6 +18,7 @@ namespace ADF_2011_EpsteinRoss
         private static Menu _appMenu { get; set; }
         private static User _activeUser { get; set; }
         private static bool _loggedIn { get; set; }
+        private static readonly string filePath = "../../../Users.txt";
         public App()
         {
             //create initial menu
@@ -229,7 +232,13 @@ namespace ADF_2011_EpsteinRoss
 
             if (confirmUser.ToLower() == "yes")
             {
+                var rand = new Random();
+                int userId = rand.Next(1, 2147483647);
+                int userActive = 1;
                 //_activeUser = new User(_chooseUserName, 1 , _choosePassword);
+                
+                using StreamWriter sw = File.AppendText(filePath);
+                sw.Write("\n" + _chooseUserName + "|" + userId + "|" + _choosePassword + "|" + _chooseCity + "|" + _chooseState + "|" + userActive + "");
             }
             if (confirmUser.ToLower() == "no") 
             {
@@ -241,7 +250,7 @@ namespace ADF_2011_EpsteinRoss
 
         }
 
-        public static void ShowProfile() 
+          public static void ShowProfile() 
         {
             Console.Clear();
             Console.WriteLine("========================================");
