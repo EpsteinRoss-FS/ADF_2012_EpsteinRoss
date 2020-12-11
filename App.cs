@@ -76,6 +76,9 @@ namespace ADF_2011_EpsteinRoss
                 case "exit":
                     Exit();
                     break;
+                case "show profile":
+                    ShowProfile();
+                    break;
                 default:
                     break;
             }
@@ -201,6 +204,20 @@ namespace ADF_2011_EpsteinRoss
 
 
 
+        }
+
+        public static void ShowProfile() 
+        {
+            Console.Clear();
+            Console.WriteLine("========================================");
+            Console.WriteLine($"            USER {_activeUser._name.ToUpper()} PROFILE                ");
+            Console.WriteLine("========================================");
+            Console.WriteLine($"NAME:  {_activeUser._name}");
+            Console.WriteLine($"STATE AND CITY:  {_activeUser._city}, {_activeUser._state} ");
+            string userActive = _activeUser._status == 1 ? "Active" : "Inactive"; 
+            Console.WriteLine($"ACCOUNT STATUS:  {userActive}");
+            App.Continue();    
+            
         }
 
     }
