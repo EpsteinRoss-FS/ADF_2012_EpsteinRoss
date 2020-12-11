@@ -13,8 +13,6 @@ namespace ADF_2011_EpsteinRoss
 {
     class Validation
     {
-
-
         //check if valid int
         public static bool CheckInt(string intCheck)
         {
@@ -29,15 +27,11 @@ namespace ADF_2011_EpsteinRoss
             return (isInRange);
         }
 
-
         //check to insure valid string
         public static bool CheckString(string stringCheck)
         {
             bool stringValid = (stringCheck.Length > 0) && (!String.IsNullOrWhiteSpace(stringCheck));
             return (stringValid);
         }
-
-
-
     }
 }

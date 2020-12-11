@@ -241,6 +241,7 @@ namespace ADF_2011_EpsteinRoss
                 //write file
                 sw.Write("\n" + _chooseUserName + "|" + userId + "|" + _choosePassword + "|" + _chooseCity + "|" + _chooseState + "|" + userActive + "");
             }
+
             if (confirmUser.ToLower() == "no") 
             {
                 Console.WriteLine("Cancelling user creation! Press any key to continue...");

@@ -13,7 +13,6 @@ namespace ADF_2011_EpsteinRoss
     class Program
     {
         public static bool hasExited = false;
-
         static void Main()
         {
             //continue program till user exits

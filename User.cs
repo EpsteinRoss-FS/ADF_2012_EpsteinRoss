@@ -100,7 +100,6 @@ namespace ADF_2011_EpsteinRoss
                     //split userdate into parts
                     userData = matchedUser.Split('|');
                     break;
-
             }
 
             

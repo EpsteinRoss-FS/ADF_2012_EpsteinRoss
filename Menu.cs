@@ -42,7 +42,6 @@ namespace ADF_2011_EpsteinRoss
 
             _menuItems = newMenu;
             MenuList = newMenu;
-
             _title = _menuItems[0];
         }
 
@@ -95,7 +94,6 @@ namespace ADF_2011_EpsteinRoss
                     {
                         Console.WriteLine($"[{i}]:  {item}");
                     }
-
 
                     i++;
                 }
