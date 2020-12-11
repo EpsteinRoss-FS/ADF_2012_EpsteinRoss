@@ -169,10 +169,43 @@ namespace ADF_2011_EpsteinRoss
                 validPassword = Validation.CheckString(_choosePassword);
             }
 
+
+            Console.Write("Please enter your desired city:  > ");
+            string _chooseCity = Console.ReadLine();
+            bool validCity = Validation.CheckString(_choosePassword);
+
+            //insure password is valid string
+            while (!validCity)
+            {
+                Console.Clear();
+                Console.Write($"Invalid Entry!  ");
+                Console.Write($"Please enter your desired password:  > ");
+                _chooseCity = Console.ReadLine();
+                validCity = Validation.CheckString(_chooseCity);
+            }
+
+            Console.Write("Please enter your desired city:  > ");
+            string _chooseState = Console.ReadLine();
+            bool validState = Validation.CheckString(_choosePassword);
+
+            //insure password is valid string
+            while (!validState)
+            {
+                Console.Clear();
+                Console.Write($"Invalid Entry!  ");
+                Console.Write($"Please enter your desired password:  > ");
+                _chooseState = Console.ReadLine();
+                validState = Validation.CheckString(_chooseCity);
+            }
+
+
+
             Console.Clear();
             Console.WriteLine("You have chosen the following options:");
             Console.WriteLine($"Username: {_chooseUserName}");
             Console.WriteLine($"Password: {_choosePassword}");
+            Console.WriteLine($"City: {_chooseCity}");
+            Console.WriteLine($"Password: {_chooseState}");
             Console.WriteLine("Is this correct? Yes/No");
             
             string confirmUser = Console.ReadLine();
@@ -185,6 +218,8 @@ namespace ADF_2011_EpsteinRoss
                 Console.WriteLine("You have chosen the following options:");
                 Console.WriteLine($"Username: {_chooseUserName}");
                 Console.WriteLine($"Password: {_choosePassword}");
+                Console.WriteLine($"City: {_chooseCity}");
+                Console.WriteLine($"Password: {_chooseState}");
                 Console.WriteLine("Is this correct? Yes/No");
 
                 confirmUser = Console.ReadLine();
@@ -194,7 +229,7 @@ namespace ADF_2011_EpsteinRoss
 
             if (confirmUser.ToLower() == "yes")
             {
-                _activeUser = new User(_chooseUserName, 1 , _choosePassword);
+                //_activeUser = new User(_chooseUserName, 1 , _choosePassword);
             }
             if (confirmUser.ToLower() == "no") 
             {
