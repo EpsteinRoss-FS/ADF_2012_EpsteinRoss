@@ -177,7 +177,7 @@ namespace ADF_2011_EpsteinRoss
             string _chooseCity = Console.ReadLine();
             bool validCity = Validation.CheckString(_choosePassword);
 
-            //insure password is valid string
+            //insure city is a valid string
             while (!validCity)
             {
                 Console.Clear();
@@ -191,18 +191,18 @@ namespace ADF_2011_EpsteinRoss
             string _chooseState = Console.ReadLine();
             bool validState = Validation.CheckString(_choosePassword);
 
-            //insure password is valid string
+            //insure state is valid string
             while (!validState)
             {
                 Console.Clear();
                 Console.Write($"Invalid Entry!  ");
                 Console.Write($"Please enter your desired password:  > ");
                 _chooseState = Console.ReadLine();
-                validState = Validation.CheckString(_chooseCity);
+                validState = Validation.CheckString(_chooseState);
             }
 
 
-
+            //display choices and confirm they are correct
             Console.Clear();
             Console.WriteLine("You have chosen the following options:");
             Console.WriteLine($"Username: {_chooseUserName}");
@@ -211,6 +211,7 @@ namespace ADF_2011_EpsteinRoss
             Console.WriteLine($"Password: {_chooseState}");
             Console.WriteLine("Is this correct? Yes/No");
             
+            //validate choice confirmation
             string confirmUser = Console.ReadLine();
             bool confirmChoiceValid = Validation.CheckString(confirmUser);
             
@@ -232,12 +233,17 @@ namespace ADF_2011_EpsteinRoss
 
             if (confirmUser.ToLower() == "yes")
             {
+                //generate a random user ID
                 var rand = new Random();
                 int userId = rand.Next(1, 2147483647);
-                int userActive = 1;
-                //_activeUser = new User(_chooseUserName, 1 , _choosePassword);
                 
+                //all newly created users are active
+                int userActive = 1;
+                                
+                //setup streamwriter
                 using StreamWriter sw = File.AppendText(filePath);
+                
+                //write file
                 sw.Write("\n" + _chooseUserName + "|" + userId + "|" + _choosePassword + "|" + _chooseCity + "|" + _chooseState + "|" + userActive + "");
             }
             if (confirmUser.ToLower() == "no") 
@@ -254,10 +260,18 @@ namespace ADF_2011_EpsteinRoss
         {
             Console.Clear();
             Console.WriteLine("========================================");
+
+            //display profile header
             Console.WriteLine($"            USER {_activeUser._name.ToUpper()} PROFILE                ");
             Console.WriteLine("========================================");
+            
+            //display user name
             Console.WriteLine($"NAME:  {_activeUser._name}");
+
+            //display city and state
             Console.WriteLine($"STATE AND CITY:  {_activeUser._city}, {_activeUser._state} ");
+            
+            //display if they are active or not
             string userActive = _activeUser._status == 1 ? "Active" : "Inactive"; 
             Console.WriteLine($"ACCOUNT STATUS:  {userActive}");
             App.Continue();    

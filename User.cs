@@ -71,12 +71,18 @@ namespace ADF_2011_EpsteinRoss
                 validPassword = Validation.CheckString(_password);
             }
 
+            //create stream reader instance
             string line;
             using (StreamReader sr = new StreamReader(filePath))
             {
                 matchedUser = "";
+                //read until end of line
                 while ((line = sr.ReadLine()) != null)
                 {
+                    /** determine if the username exists.  The | symbol
+                     * will prevent instances of a partial username match.  IE:
+                     * Josh will not trigger on Joshua.
+                     * **/
                     if (line.Contains(_userName + "|"))
                     {
                         matchedUser = line;
@@ -85,40 +91,41 @@ namespace ADF_2011_EpsteinRoss
                 }
             }
 
+            //if matched user is not null
             switch (matchedUser != "")
             {
                 case false:
                     break;
                 case true:
+                    //split userdate into parts
                     userData = matchedUser.Split('|');
                     break;
 
             }
 
-            /**name: testguy, id 1, password, testcity, teststate, active or not1 **/
+            
 
-            //insure username && password match
+            //insure username && password match based on pre-set array keys
             bool userFound = matchedUser != "" ? (_password == userData[2] && _userName == userData[0]) : false;
 
+            //if the username and password are an exact match
             if (userFound)
             {
+                //assign user data based on their space in the array
                 user._name = userData[0];
                 user._city = userData[3];
                 user._state = userData[4];
                 user._status = Int32.Parse(userData[5]);
             }
 
-            string loginAttemptMsg = userFound ? "User found" : "User login not recognized";
-            Console.WriteLine(loginAttemptMsg);
-          
-
             /**
              * if userFound returns false, user is not logged in.  If userFound
              * returns true, user is logged in.  True or False returned based on 
              * userFound.
              * **/
-            
-            
+            string loginAttemptMsg = userFound ? "User found" : "User login not recognized";
+            Console.WriteLine(loginAttemptMsg);
+          
             App.Continue();
             
             return userFound;
