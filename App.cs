@@ -234,12 +234,13 @@ namespace ADF_2011_EpsteinRoss
                 
                 //all newly created users are active
                 int userActive = 1;
-                                
+
                 //setup streamwriter
-                using StreamWriter sw = File.AppendText(filePath);
-                
-                //write file
-                sw.Write("\n" + _chooseUserName + "|" + userId + "|" + _choosePassword + "|" + _chooseCity + "|" + _chooseState + "|" + userActive + "");
+                using (StreamWriter sw = new StreamWriter(filePath)) { 
+
+                    //write file
+                    sw.Write("\n" + _chooseUserName + "|" + userId + "|" + _choosePassword + "|" + _chooseCity + "|" + _chooseState + "|" + userActive + "");
+                }
             }
 
             if (confirmUser.ToLower() == "no") 
