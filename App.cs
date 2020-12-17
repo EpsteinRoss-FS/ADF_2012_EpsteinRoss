@@ -111,13 +111,45 @@ namespace ADF_2011_EpsteinRoss
             }
             return _loggedIn;
         }
-    
+
+        public static void Header(string headerName)
+        {
+            Console.WriteLine("========================================");
+
+            string SpacedHeader;
+            string paddingSpaces = "";
+            int HeaderLength = headerName.Length;
+
+            headerName = headerName.ToUpper();
+
+            //40 is the length of "=" in header lines
+            int totalSpaces = 40;
+
+            //calculate 40 - lenstring / 2 for each sides padding
+            int paddingEachSide = (totalSpaces - HeaderLength) / 2;
+
+            //add padding to each side of the string
+            for (int i = 0; i < paddingEachSide;)
+            {
+                paddingSpaces += " ";
+                i++;
+            }
+
+            SpacedHeader = paddingSpaces + headerName + paddingSpaces;
+
+            Console.WriteLine(SpacedHeader);
+
+            Console.WriteLine("========================================");
+
+        }
 
         //display the about section
         public static void About()
         {
             Console.Clear();
-            Console.WriteLine("This is the about section.");
+            Header("WELCOME TO MY CONSOLE APPLICATION!");
+            Console.WriteLine("  This console application is a demonstration of my skillset in C#.\nIt is being done for my \"PROJECT AND PORTFOLIO I: APPLICATION DEVELOPMENT FUNDAMENTALS\" class" +
+                "\n at Full Sail University! \n");
             Continue();
         }
 
@@ -239,7 +271,7 @@ namespace ADF_2011_EpsteinRoss
                 using (StreamWriter sw = new StreamWriter(filePath)) { 
 
                     //write file
-                    sw.Write("\n" + _chooseUserName + "|" + userId + "|" + _choosePassword + "|" + _chooseCity + "|" + _chooseState + "|" + userActive + "");
+                    sw.Write(_chooseUserName + "|" + userId + "|" + _choosePassword + "|" + _chooseCity + "|" + _chooseState + "|" + userActive + "");
                 }
             }
 
@@ -256,12 +288,11 @@ namespace ADF_2011_EpsteinRoss
           public static void ShowProfile() 
         {
             Console.Clear();
-            Console.WriteLine("========================================");
+            
 
             //display profile header
-            Console.WriteLine($"            USER {_activeUser._name.ToUpper()} PROFILE                ");
-            Console.WriteLine("========================================");
-            
+            Header($"USER { _activeUser._name.ToUpper()} PROFILE");
+
             //display user name
             Console.WriteLine($"NAME:  {_activeUser._name}");
 
