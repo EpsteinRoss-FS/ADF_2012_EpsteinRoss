@@ -268,10 +268,10 @@ namespace ADF_2011_EpsteinRoss
                 int userActive = 1;
 
                 //setup streamwriter
-                using (StreamWriter sw = new StreamWriter(filePath)) { 
+                using (StreamWriter sw = File.AppendText(filePath)) { 
 
                     //write file
-                    sw.Write(_chooseUserName + "|" + userId + "|" + _choosePassword + "|" + _chooseCity + "|" + _chooseState + "|" + userActive + "");
+                    sw.WriteLine(_chooseUserName + "|" + userId + "|" + _choosePassword + "|" + _chooseCity + "|" + _chooseState + "|" + userActive + "");
                 }
             }
 
