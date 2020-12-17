@@ -129,6 +129,12 @@ namespace ADF_2011_EpsteinRoss
             
             return userFound;
         }
+        public static void DisplayUsers()
+        {
+            Console.Clear();
+            App.Header("Display Users");
+            App.Continue();
+        }
 
     }
 }

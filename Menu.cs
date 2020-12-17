@@ -74,6 +74,12 @@ namespace ADF_2011_EpsteinRoss
                 _menuItems.RemoveAll(x => x == "Create User");
             }
 
+            //if user is not logged in, remove DisplayUsers
+            if (!userLoggedIn && _menuItems.Contains("Display Users"))
+            {
+                _menuItems.RemoveAll(x => x == "Display Users");
+            }
+
             //display all items in _menuItems where the text != "main menu"
             foreach (var item in _menuItems)
             {

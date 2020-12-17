@@ -24,7 +24,7 @@ namespace ADF_2011_EpsteinRoss
             //create initial menu
             Console.Clear();
             Menu appMenu = new Menu();
-            string[] menuItems = { "Main Menu", "Create User", "Show Profile", "Login", "About", "Exit" };
+            string[] menuItems = { "Main Menu", "Create User", "Show Profile", "Login", "About","Display Users", "Exit" };
             _appMenu = appMenu;
 
             //initialize menu
@@ -81,6 +81,9 @@ namespace ADF_2011_EpsteinRoss
                     break;
                 case "show profile":
                     ShowProfile();
+                    break;
+                case "users":
+                    User.DisplayUsers();
                     break;
                 default:
                     break;
@@ -315,6 +318,8 @@ namespace ADF_2011_EpsteinRoss
             App.Continue();    
             
         }
+
+
 
     }
 }
