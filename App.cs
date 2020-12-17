@@ -147,6 +147,7 @@ namespace ADF_2011_EpsteinRoss
         //display the about section
         public static void About()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.Clear();
             Header("WELCOME TO MY CONSOLE APPLICATION!");
             Console.WriteLine("This console application is a demonstration of my skillset in C#.\nIt is being done for my \"PROJECT AND PORTFOLIO I: APPLICATION DEVELOPMENT FUNDAMENTALS\"\n" +
