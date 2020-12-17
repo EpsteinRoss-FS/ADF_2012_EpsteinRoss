@@ -53,17 +53,13 @@ namespace ADF_2011_EpsteinRoss
 
             if (!userLoggedIn)
             {
-                Console.WriteLine("========================================");
-                Console.WriteLine($"               {_title.ToUpper()}                ");
-                Console.WriteLine("========================================");
+                App.Header($"{_title.ToUpper()}");
             }
 
             //if user is logged in, display welcome message for user
             if (userLoggedIn)
             {
-                Console.WriteLine("========================================");
-                Console.WriteLine($"               WELCOME, {_activeUser._name.ToUpper()}                ");
-                Console.WriteLine("========================================");
+                App.Header($"WELCOME, {_activeUser._name.ToUpper()}");
             }
             int i = 1;
 
