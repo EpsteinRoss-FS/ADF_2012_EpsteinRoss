@@ -112,6 +112,7 @@ namespace ADF_2011_EpsteinRoss
             return _loggedIn;
         }
 
+        //function for centering headers
         public static void Header(string headerName)
         {
             Console.WriteLine("========================================");
@@ -148,8 +149,16 @@ namespace ADF_2011_EpsteinRoss
         {
             Console.Clear();
             Header("WELCOME TO MY CONSOLE APPLICATION!");
-            Console.WriteLine("  This console application is a demonstration of my skillset in C#.\nIt is being done for my \"PROJECT AND PORTFOLIO I: APPLICATION DEVELOPMENT FUNDAMENTALS\" class" +
-                "\n at Full Sail University! \n");
+            Console.WriteLine("This console application is a demonstration of my skillset in C#.\nIt is being done for my \"PROJECT AND PORTFOLIO I: APPLICATION DEVELOPMENT FUNDAMENTALS\"\n" +
+                "class at Full Sail University!\n\nThis application demonstrates my ability to write C# code that utilizes:" +
+                "\n  -  File I/O Functionality" +
+                "\n  -  User Authentication" +
+                "\n  -  User Creation" +
+                "\n  -  Validation" +
+                "\n  -  Automation (headers are auto spaced)" +
+                "\n  -  Git Principles" +
+                "\n  -  Agile Development Principles" +
+                "\n\nI hope you enjoy it! - Ross Epstein");
             Continue();
         }
 
