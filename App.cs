@@ -265,7 +265,7 @@ namespace ADF_2011_EpsteinRoss
             Console.WriteLine($"Username: {_chooseUserName}");
             Console.WriteLine($"Password: {_choosePassword}");
             Console.WriteLine($"City: {_chooseCity}");
-            Console.WriteLine($"Password: {_chooseState}");
+            Console.WriteLine($"State: {_chooseState}");
             Console.WriteLine("Is this correct? Yes/No");
             
             //validate choice confirmation
