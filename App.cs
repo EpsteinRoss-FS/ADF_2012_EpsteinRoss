@@ -82,8 +82,8 @@ namespace ADF_2011_EpsteinRoss
                 case "show profile":
                     ShowProfile();
                     break;
-                case "users":
-                    User.DisplayUsers();
+                case "display users":
+                    DisplayUsers();
                     break;
                 default:
                     break;
@@ -172,6 +172,23 @@ namespace ADF_2011_EpsteinRoss
             Console.WriteLine("Exiting...");
             Program.hasExited = true;
             return;
+        }
+
+        public static void DisplayUsers() 
+        {
+            Console.Clear();
+            App.Header("Display Users");
+            Console.WriteLine("\nThe following users were found:");
+            List<string> usersToDisplay = User.DisplayUsers();
+            int i = 1;
+            
+            foreach (var userName in usersToDisplay) 
+            {
+                Console.WriteLine($"{i}: {userName.ToUpper()}");
+                i++;
+            }
+            Console.WriteLine("\n");
+            Continue();
         }
 
         //display continue statement and wait for key press

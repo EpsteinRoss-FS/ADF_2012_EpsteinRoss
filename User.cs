@@ -129,11 +129,34 @@ namespace ADF_2011_EpsteinRoss
             
             return userFound;
         }
-        public static void DisplayUsers()
+        public static List<string> DisplayUsers()
         {
-            Console.Clear();
-            App.Header("Display Users");
-            App.Continue();
+         
+            
+            string line;
+            int i = 0;
+            List<string> usersToDisplay = new List<string>();
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                matchedUser = "";
+                //read until end of line
+                
+                while ((line = sr.ReadLine()) != null)
+                {
+                    /** determine if the username exists.  The | symbol
+                     * will prevent instances of a partial username match.  IE:
+                     * Josh will not trigger on Joshua.
+                     * **/
+                    
+                    string userToPush = line.Split('|')[0];
+                    usersToDisplay.Add(userToPush);
+                    i++;
+                }
+                
+            }
+
+            return (usersToDisplay);
+
         }
 
     }
