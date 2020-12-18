@@ -244,7 +244,7 @@ namespace ADF_2011_EpsteinRoss
                 validCity = Validation.CheckString(_chooseCity);
             }
 
-            Console.Write("Please enter your desired city:  > ");
+            Console.Write("Please enter your desired state:  > ");
             string _chooseState = Console.ReadLine();
             bool validState = Validation.CheckString(_choosePassword);
 
